@@ -1,0 +1,108 @@
+body {
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#header {
+  padding: 10px;
+  text-align: center;
+}
+
+#tabs {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+#tabs li {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  color: black; /* Change the color to black */
+  font-family: 'Your Fancy Font', cursive;
+  font-size: 24px;
+}
+
+.container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Styling for the Sign Up button */
+button {
+  background-color: #FF6F61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FF4136;
+}
+
+/* Styling for the Sign In button */
+button:nth-of-type(2) {
+  background-color: #0074D9;
+}
+
+button:nth-of-type(2):hover {
+  background-color: #001F3F;
+}
+
+.signupBox {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.signupBox h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.signupBox label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.signupBox input,
+.signupBox select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.signupBox .submitButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.signupBox .submitButton:hover {
+  background-color: #45a049;
+}
+
+#welcomeText {
+  background-color: transparent;
+}
+
