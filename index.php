@@ -31,7 +31,7 @@
     <h1 id="welcomeText">Welcome to tAnGO ties</h1>
     <!-- Contents of the home screen -->
     <button id="signupButton" onclick="showSignUpForm()">Sign Up</button>
-    <button id="signInButton">Sign In</button>
+    <button id="signInButton" onclick="window.location.href = 'signin.php'">Sign In</button>
   </div>
 
   <div id="signupForm" class="signupBox">
