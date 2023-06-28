@@ -24,7 +24,7 @@
     <ul id="tabs">
       <li onclick="location.reload();">Home</li> <!-- Updated onclick event -->
       <li>AboutUs</li>
-      <li>Policy</li>
+      <li onclick="window.location.href = 'policy.php'">Policy</li> <!-- Added onclick event -->
     </ul>
   </div>
 
