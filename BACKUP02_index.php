@@ -11,12 +11,44 @@
   </style>
   <script>
     function showSignUpForm() {
-      document.getElementById("signupForm").style.display = "block";
       document.getElementById("signupButton").style.display = "none";
       document.getElementById("signInButton").style.display = "none";
       document.getElementById("welcomeText").innerHTML = ""; // Remove the welcome message
       document.getElementById("signinText").style.display = "block"; // Show the "Already have an account?" text
+      document.getElementById("signupFormContainer").style.display = "block"; // Show the signup form
     }
+
+    // Function to handle form submission using AJAX
+    function submitForm(event) {
+      event.preventDefault(); // Prevent default form submission behavior
+
+      // Get the form data
+      var formData = new FormData(document.getElementById('signupForm'));
+
+      // Send the form data to submit.php using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'submit.php', true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          // Success
+          console.log(xhr.responseText);
+          alert('Data submitted successfully!');
+          document.getElementById('signupForm').reset(); // Reset the form
+        } else {
+          // Error
+          console.error(xhr.responseText);
+          alert('Error occurred while submitting the form.');
+        }
+      };
+      xhr.onerror = function () {
+        console.error(xhr.responseText);
+        alert('Error occurred while submitting the form.');
+      };
+      xhr.send(formData);
+    }
+
+    // Add event listener to the form submission
+    document.getElementById('signupForm').addEventListener('submit', submitForm);
   </script>
 </head>
 <body>
@@ -33,9 +65,9 @@
     <!-- Contents of the home screen -->
     <button id="signupButton" onclick="showSignUpForm()">Sign Up</button>
     <button id="signInButton" onclick="window.location.href = 'signin.php'">Sign In</button>
-    <div id="signupForm" class="signupBox" style="display: none;">
+    <div id="signupFormContainer" class="signupBox" style="display: none;">
       <h2>Sign Up</h2>
-      <form action="submit.php" method="POST">
+      <form id="signupForm" class="signupForm" onsubmit="submitForm(event)">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
@@ -70,11 +102,6 @@
       </form>
     </div>
   </div>
-
-  <script>
-    // Show the home screen by default
-    document.getElementById("signupForm").style.display = "none";
-  </script>
 </body>
 </html>
 
