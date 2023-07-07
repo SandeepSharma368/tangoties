@@ -17,6 +17,13 @@
       document.getElementById("welcomeText").innerHTML = ""; // Remove the welcome message
       document.getElementById("signinText").style.display = "block"; // Show the "Already have an account?" text
     }
+    
+    function addCountryCode() {
+      var phoneNumber = document.getElementById("phone").value;
+      if (phoneNumber.length === 10) {
+        document.getElementById("phone").value = "+91" + phoneNumber;
+      }
+    }
   </script>
 </head>
 <body>
@@ -35,12 +42,12 @@
     <button id="signInButton" onclick="window.location.href = 'signin.php'">Sign In</button>
     <div id="signupForm" class="signupBox" style="display: none;">
       <h2>Sign Up</h2>
-      <form action="submit.php" method="POST">
+      <form action="submit.php" method="POST" onsubmit="addCountryCode()">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
         <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" required>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" title="Enter a 10-digit mobile number" placeholder="Enter 10-digit mobile number">
 
         <label for="email">Email Address:</label>
         <input type="email" id="email" name="email" required>
